@@ -23,12 +23,25 @@ fun isValidIdentifier2(s: String): Boolean {
     return true
 }
 
+// Implemente la función que verifica si una cadena es un identificador válido.
+// Un identificador válido es una cadena no vacía que comienza con una letra
+// o un guión bajo y consta únicamente de letras, dígitos y guiones bajos.
+
+fun isValidIdentifier3(s: String): Boolean {
+    if(s != "")
+        if(s[0] !in '0'..'9') {
+            for (i in s) if (!(i in 'a'..'z' || i in 'A'..'Z' || i in '0'..'9' || i == '_')) return false
+        } else return false
+    else return false
+    return true
+}
+
 fun main(args: Array<String>) {
-    println(isValidIdentifier("name"))   // true
-    println(isValidIdentifier("_name"))  // true
-    println(isValidIdentifier("_12"))    // true
-    println(isValidIdentifier(""))       // false
-    println(isValidIdentifier("012"))    // false
-    println(isValidIdentifier("no$"))    // false
+    println(isValidIdentifier3("name"))   // true
+    println(isValidIdentifier3("_name"))  // true
+    println(isValidIdentifier3("_12"))    // true
+    println(isValidIdentifier3(""))       // false
+    println(isValidIdentifier3("012"))    // false
+    println(isValidIdentifier3("no$"))    // false
 
 }
